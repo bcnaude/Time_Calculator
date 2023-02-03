@@ -19,14 +19,9 @@ def add_time(start_time, duration_time, weekday=""):
         total_hours = total_hours % 24
 
     # Calculate if suffix should be AM or PM
-    time_suffix = ""
-    if split_time[2] == "AM":
-        if total_hours % 24 < 12:
-            time_suffix = "AM"
-        else:
-            time_suffix = "PM"
-    else:
-        if total_hours % 24 < 12:
+    time_suffix = split_time[2]
+    if total_hours % 24 >= 12:
+        if time_suffix == "AM":
             time_suffix = "PM"
         else:
             time_suffix = "AM"
